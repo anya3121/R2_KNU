@@ -1,3 +1,5 @@
+Зчитати WEB сторінку з сайту IMDB.com зі 100 фільмами 2017 року виходу за посиланням
+«http://www.imdb.com/search/title?count=100&release_date=2017,2017&title_type=feature».
 ```
 library("rvest")
 Url<-("http://www.imdb.com/search/title?count=100&release_date=2017,2017&title_type=feature")
