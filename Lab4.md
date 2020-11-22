@@ -9,6 +9,7 @@ res<-dbSendQuery(conn,"SELECT Title, EventType FROM Papers WHERE EventType='Spot
 df<-dbFetch(res,n=10)
 df
 ```
+```
  Title EventType
 1  A Tractable Approximation to Optimal Point Process Filtering: Application to Neural Encoding Spotlight
 2                                    Accelerated Mirror Descent in Continuous and Discrete Time Spotlight
@@ -34,4 +35,41 @@ df
 2 Josh Tenenbaum Galileo: Perceiving Physical Object Properties by Integrating a Physics Engine with Deep Learning
 3 Josh Tenenbaum                                                Softstar: Heuristic-Guided Probabilistic Inference
 4 Josh Tenenbaum                                                        Unsupervised Learning by Program Synthesis
+```
+3. Вибрати всі назви статей (Title), в яких є слово «statistical». Сортування по назві статті.
+```
+res<-dbSendQuery(conn,"SELECT Title FROM Papers WHERE Title LIKE '%statistical%' ORDER BY Title")
+df<-dbFetch(res, n=10)
+df
+```
+```                                                                             
+                                                                                Title
+1 Adaptive Primal-Dual Splitting Methods for Statistical Learning and Image Processing
+2                                Evaluating the statistical significance of biclusters
+3                  Fast Randomized Kernel Ridge Regression with Statistical Guarantees
+4     High Dimensional EM Algorithm: Statistical Optimization and Asymptotic Normality
+5                Non-convex Statistical Optimization for Sparse Tensor Graphical Model
+6            Regularized EM Algorithms: A Unified Framework and Statistical Guarantees
+7                            Statistical Model Criticism using Kernel Two Sample Tests
+8                         Statistical Topological Data Analysis - A Kernel Perspective
+```
+4. Ім’я автору (Name), кількість статей по кожному автору (NumPapers). Сортування по кількості статей від більшої кількості до меньшої.
+```
+res<-dbSendQuery(conn,"SELECT distinct(a.Name) AS Author, count(p_a.PaperId) AS NumPapers FROM PaperAuthors p_a 
+INNER JOIN Authors a ON a.Id=p_a.AuthorId GROUP BY a.Name ORDER BY NumPapers DESC")
+df<-dbFetch(res, n=10)
+df
+```
+```
+                 Author NumPapers
+1  Pradeep K. Ravikumar         7
+2        Lawrence Carin         6
+3               Han Liu         6
+4     Zoubin Ghahramani         5
+5               Le Song         5
+6   Inderjit S. Dhillon         5
+7          Zhaoran Wang         4
+8         Yoshua Bengio         4
+9  Simon Lacoste-Julien         4
+10          Shie Mannor         4
 ```
