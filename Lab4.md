@@ -22,7 +22,7 @@ df
 9                       Bandit Smooth Convex Optimization: Improving the Bias-Variance Tradeoff Spotlight
 10                         Biologically Inspired Dynamic Textures for Probing Motion Perception Spotlight
 ```
-2.Ім’я автора (Name), Назва статті (Title). Необхідно вивести всі назви статей для автора «Josh Tenenbaum». Сортування по назві статті.
+2. Ім’я автора (Name), Назва статті (Title). Необхідно вивести всі назви статей для автора «Josh Tenenbaum». Сортування по назві статті.
 ```
 res<-dbSendQuery(conn,"SELECT a.Name AS Author, p.Title FROM PaperAuthors p_a INNER JOIN Authors a  
 ON a.Id=p_a.AuthorId INNER JOIN Papers p ON p.Id=p_a.PaperId WHERE a.Name = 'Josh Tenenbaum' ORDER BY p.Title")
