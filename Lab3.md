@@ -10,3 +10,64 @@ movies
 [1] <head>\n<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n<script type="text/javascript">var ue_t0 ...
 [2] <body id="styleguide-v2" class="fixed">\n            <img height="1" width="1" style="display:none;visibility:hidden; ...
 ```
+```
+rank_data_html <- html_nodes(movies, '.text-primary')
+rank_data_html
+```
+```
+{xml_nodeset (100)}
+ [1] <span class="lister-item-index unbold text-primary">1.</span>
+ [2] <span class="lister-item-index unbold text-primary">2.</span>
+ ...
+```
+```
+rank_data<-html_text(rank_data_html)
+rank_data<-as.numeric(rank_data)
+head(rank_data)
+```
+```
+[1] 1 2 3 4 5 6
+```
+```
+title_data_html <-html_nodes(movies,".lister-item-header a")
+title_data<-html_text(title_data_html)
+head(title_data)
+```
+```
+[1] "Той, хто біжить по лезу 2049" "Воно"                         "Найвеличніший шоумен"        
+[4] "Пастка"                       "Метелик"                      "Вбивство священного оленя" 
+```
+
+```
+runtime_data_html<-html_nodes(movies,".text-muted .runtime")
+runtime_data<-html_text(runtime_data_html)
+head(runtime_data)
+```
+```
+[1] "164 min" "135 min" "105 min" "104 min" "133 min" "121 min"
+```
+```
+runtime_data <- substr(runtime_data, 1, 3)
+runtime_data <- as.numeric(runtime_data)
+head(runtime_data)
+```
+```
+[1] 164 135 105 104 133 121
+```
+```
+movies<-data.frame(Rank= rank_data, Titile=title_data, Time = runtime_data,stringsAsFactors = FALSE)
+movies
+```
+```
+   Rank                                   Titile Time
+1      1             Той, хто біжить по лезу 2049  164
+2      2                                     Воно  135
+3      3                     Найвеличніший шоумен  105
+4      4                                   Пастка  104
+5      5                                  Метелик  133
+6      6                Вбивство священного оленя  121
+7      7                            Тор: Раґнарок  130
+8      8               Джуманджі: Поклик джунглів  119
+9      9                      Вартові Галактики 2  136
+10    10                   Назви мене своїм ім'ям  132
+```
