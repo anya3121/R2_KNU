@@ -34,10 +34,5 @@ nrow(df24)
 ```
 [1] 53
 ```
-3. Зчитайте xml файл за посиланням
-http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml
-Скільки ресторанів мають zipcode 21231?
-```
-df<- xmlToDataFrame("http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml")
 
 
