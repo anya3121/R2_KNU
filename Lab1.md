@@ -34,5 +34,17 @@ nrow(df24)
 ```
 [1] 53
 ```
-
-
+3.Зчитайте xml файл за посиланням
+http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml
+Скільки ресторанів мають zipcode 21231?
+```
+library(XML)
+url<-'http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml'
+hml_data<-xmlTreeParse(url, useInternal=TRUE)
+root<-xmlRoot(hml_data)
+df<-xpathSApply(root,"//zipcode",xmlValue)
+length(which(df==21231))
+```
+```
+[1] 127
+```
