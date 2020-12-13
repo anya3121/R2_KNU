@@ -8,11 +8,10 @@ sub_data <- subset(data,Date=="1/2/2007"|Date=="2/2/2007")
 sub_data$Date<-as.Date(sub_data$Date, format = "%d/%m/%Y")
 sub_data$DateTime<-strptime(paste(sub_data$Date,sub_data$Time),"%F %T")
 ```
-1.Global Active Power frequency
+1. Global Active Power frequency
 ```
 hist(sub_data$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
 ```
-
 2. Global Active Power by days of the week
 ```
 plot(sub_data$DateTime,sub_data$Global_active_power, ylab="Global Active Power (kilowatts)", xlab="", type="l")
