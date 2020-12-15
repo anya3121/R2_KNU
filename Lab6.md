@@ -12,10 +12,10 @@ sub_data$DateTime<-strptime(paste(sub_data$Date,sub_data$Time),"%F %T")
 ```
 hist(sub_data$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
 ```
-```
+
 ![Plot]
 (https://github.com/anya3121/R2_KNU/blob/main/plot1.png)
-```
+
 2. Global Active Power by days of the week
 ```
 plot(sub_data$DateTime,sub_data$Global_active_power, ylab="Global Active Power (kilowatts)", xlab="", type="l")
