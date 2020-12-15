@@ -7,8 +7,6 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals were used to estimate variables of the feature vector for each pattern:
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-Here is a complete list of all the features and the sensor signals.
-
 subject - the measurement subject index (1 represent person # 1)
 activity - activity type which will have 1 of 6 values
 1 WALKING 2 WALKING_UPSTAIRS 3 WALKING_DOWNSTAIRS 4 SITTING 5 STANDING 6 LAYING
