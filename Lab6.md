@@ -15,7 +15,7 @@ hist(sub_data$Global_active_power, col="red", main="Global Active Power", xlab="
 dev.off()
 ```
 ![Plot]
-(https://github.com/anya3121/R2_KNU/blob/main/plot1.png?raw=true)
+(https://github.com/anya3121/R2_KNU/blob/master/plot1.png)
 
 2. Global Active Power by days of the week
 ```
