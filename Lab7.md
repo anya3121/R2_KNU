@@ -17,7 +17,6 @@ barplot((NEI_by_year$Total/10^3), names.arg=NEI_by_year$year, col="red", xlab="Y
 відповіді на це запитання.
 ```
 NEI_Balti <- NEI %>% group_by(year) %>%filter(fips=="24510") %>% summarise(Total=sum(Emissions))
-`summarise()` ungrouping output (override with `.groups` argument)
 barplot(NEI_Balti$Total, names.arg=NEI_Balti$year, col="green", xlab="Year", ylab="PM2.5 Total Emissions, tons", 
 main="Total PM2.5 Emissions From All Baltimore City Sources")
 ```
@@ -27,8 +26,10 @@ main="Total PM2.5 Emissions From All Baltimore City Sources")
 системою ggplot2, для побудови графіків для відповіді на ці запитання
 ```
 NEI_balti_type <- NEI %>% group_by(year, type) %>%filter(fips=="24510") %>% summarise(Total=sum(Emissions))
-ggplot(NEI_balti_type, aes(factor(year), Total, fill=factor(type))) + geom_bar(stat="identity")  +  facet_grid(~type) + guides(fill=FALSE)
-+ labs(x="year", y=expression("Total PM2.5 Emission (Tons)")) +  labs(title=expression("PM2.5 Emissions in Baltimore City 1999-2008 by Source Type"))
+ggplot(NEI_balti_type, aes(factor(year), Total, fill=factor(type))) + 
+geom_bar(stat="identity")  +  facet_grid(~type) + guides(fill=FALSE)+ 
+labs(x="year", y=expression("Total PM2.5 Emission (Tons)")) + 
+labs(title=expression("PM2.5 Emissions in Baltimore City 1999-2008 by Source Type"))
 ```
 4. Як змінилися викиди від джерел спалювання вугілля (coal combustionrelated sources)в США у 1999–2008 роках у США?
 ```
