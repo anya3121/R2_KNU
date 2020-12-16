@@ -55,11 +55,11 @@ main="PM2.5 Motor Vehicle Sources in Baltimore")
 автомобільних джерел?
 ```
  NEI_motor_ba_la <- NEI_motor %>%filter(fips=="24510" | fips=="06037")  %>% 
-+     mutate(city=case_when(fips=="24510" ~ "Baltimore City", fips=="06037"~ "Los Angeles")) %>% 
-+     group_by(year, city) %>% summarise(Emissions=sum(Emissions))
+ mutate(city=case_when(fips=="24510" ~ "Baltimore City", fips=="06037"~ "Los Angeles")) %>% 
+ group_by(year, city) %>% summarise(Emissions=sum(Emissions))
 
 ggplot(NEI_motor_ba_la, aes(factor(year), Emissions, fill=factor(city))) +
-+     geom_bar(stat="identity")  +  facet_grid(~city) + guides(fill=FALSE)+ 
-+     labs(x="year", y=expression("Total PM2.5 Emission (Tons)")) + 
-+     labs(title=expression("Vehicle Source Emissions in Baltimore and LA, 1999-2008"))
+geom_bar(stat="identity")  +  facet_grid(~city) + guides(fill=FALSE)+ 
+labs(x="year", y=expression("Total PM2.5 Emission (Tons)")) + 
+labs(title=expression("Vehicle Source Emissions in Baltimore and LA, 1999-2008"))
 ```
