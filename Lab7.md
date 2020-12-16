@@ -64,9 +64,9 @@ dev.off()
 "06037"). У якому місті відбулися значні зміни з часом у викидах від
 автомобільних джерел?
 ```
- NEI_motor_ba_la <- NEI_motor %>%filter(fips=="24510" | fips=="06037")
- mutate(city=case_when(fips=="24510" ~ "Baltimore City", fips=="06037"~ "Los Angeles")) %>% 
- group_by(year, city) %>% summarise(Emissions=sum(Emissions))
+NEI_motor_ba_la <- NEI_motor %>%filter(fips=="24510" | fips=="06037")
+mutate(city=case_when(fips=="24510" ~ "Baltimore City", fips=="06037"~ "Los Angeles")) %>% 
+group_by(year, city) %>% summarise(Emissions=sum(Emissions))
 png("Lab7_plot6.png", width=480, height=480)
 ggplot(NEI_motor_ba_la, aes(factor(year), Emissions, fill=factor(city))) +
 geom_bar(stat="identity")  +  facet_grid(~city) + guides(fill=FALSE)+ 
