@@ -3,7 +3,7 @@
 URL<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(URL, destfile = paste0(getwd(), '/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'), method = "curl")
 
-x_train<-read.table('data/UCI HAR Dataset/train/X_train.txt')'
+x_train<-read.table('data/UCI HAR Dataset/train/X_train.txt')
 names(x_train) <- features
 y_train<- read.csv('data/UCI HAR Dataset/train/y_train.txt', header = FALSE, sep = ' ')
 names(y_train) <- c("Activity")
