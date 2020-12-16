@@ -2,6 +2,7 @@
 
 URL<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(URL, destfile = paste0(getwd(), '/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'), method = "curl")
+no_zip<- unzip("getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",exdir = "data")
 
 x_train<-read.table('data/UCI HAR Dataset/train/X_train.txt')
 names(x_train) <- features
